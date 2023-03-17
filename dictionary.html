@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary</title>
+</head>
+<body>
+<h1>Từ điển các thứ trong tuần</h1>
+<p>Nhập từ: <input type="text" id="txt"></p>
+<button onclick="translation()">Dịch</button>
+<b><p id="result"></p></b>
+<script>
+    function translation() {
+        let word = document.getElementById('txt').value;
+        let wordEng = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+        let wordVie = ['thứ hai', 'thứ ba', 'thứ tư', 'thứ năm', 'thứ sáu', 'thứ bảy', 'chủ nhật'];
+        let indexEng = 0;
+        let result = '';
+        for (let i = 0; i < wordEng.length; i++) {
+            if (word == wordEng[i]) {
+                indexEng = i;
+                for (let j = 0; j < wordVie.length; j++) {
+                    if (indexEng == j) {
+                        result = wordVie[j];
+                    }
+                }
+                break;
+            } else {
+                result = 'Không tìm thấy từ bạn nhập';
+            }
+        }
+        document.getElementById('result').innerHTML = result;
+    }
+</script>
+</body>
+</html>
